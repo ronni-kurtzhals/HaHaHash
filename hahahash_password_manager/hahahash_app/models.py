@@ -10,3 +10,6 @@ class PasswordEntry(models.Model):
 
     def __str__(self):
         return self.website
+    
+    class Meta:
+        app_label = 'hahahash_app'
