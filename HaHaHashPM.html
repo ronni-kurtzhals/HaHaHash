@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <!-- Add this style to import the required fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Agbalumo&family=Arvo&display=swap');
+  </style>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(90deg, #8c52ff, #ff914d); /* Linear gradient background */
+      font-family: 'Rye', cursive;
+      color: white; /* Text color */
+      position: relative; /* Ensure relative positioning for absolute elements */
+    }
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Adjusted alignment to the left */
+      max-width: 800px; /* Increased the max-width for better spacing */
+    }
+    .password-manager-name {
+      font-size: 5rem; /* Increase the font size */
+      margin-bottom: 1px;
+      color: #004aad; /* Set a single color for the text */
+      font-family: 'Caveat', cursive; /* Set the font family */
+    }
+    .tagline {
+      font-size: 2rem;
+      color: black; /* Set color to black */
+      font-family: 'Caveat', cursive; /* Set the font family */
+      white-space: nowrap; /* Prevent line breaks */
+      margin-left: 35.5rem; /* Add indentation */
+    }
+    .password-manager-name img {
+      margin-right: 10px; /* Add margin between the logo and text */
+      width: 350px; /* Set the width of the logo to 100px */
+      height: 350px; /* Set the height of the logo to 100px */
+    }
+    .custom-container {
+      background-color: #ffffff; /* White background color for the container */
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+      padding: 20px;
+    }
+    .welcome-message {
+      font-size: 1.5rem;
+      text-align: center;
+      color: black; /* Set color to black */
+      font-family: 'Agbalumo', cursive; /* Set the font family */
+      margin-bottom: 20px;
+    }
+    .field label {
+      font-family: 'Arvo', cursive; /* Set the font family for labels */
+    }
+    .button.is-primary {
+      background-color: #000aad; /* Set the button color to #000aad */
+    }
+    .eye-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    .bottom-right-image {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 500px; /* Set the width of the bottom-right image to 500px */
+      height: 500px; /* Set the height of the bottom-right image to 500px */
+    }
+  </style>
+  <title>HaHaHash Password Manager</title>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Add an img tag inside the password-manager-name to include a logo image -->
+    <h1 class="password-manager-name">
+      <img src="C:/Users/abhij/Documents/lock.png" alt="Logo">
+      HaHaHash
+    </h1>
+    <p class="tagline">Keeps your password safely stored</p>
+    
+    <section class="section">
+      <div class="container custom-container">
+        <p class="welcome-message">Welcome to Your Password Manager</p>
+
+        <form class="box">
+          <div class="field">
+            <label class="label">Website</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Enter the website">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Enter your username">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control position-relative">
+              <input id="passwordInput" class="input" type="password" placeholder="Enter your password">
+              <span class="icon is-small is-right eye-icon" id="togglePassword">
+                <i class="fas fa-eye"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary is-fullwidth">Store</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Add another img tag for the bottom-right image -->
+    <img src="C:/Users/abhij/Documents/keys.png" alt="Bottom Right Image" class="bottom-right-image">
+
+  </div>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('passwordInput');
+
+    togglePassword.addEventListener('click', () => {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+
+      // Toggle eye icon
+      const eyeIcon = togglePassword.querySelector('i.fa-eye');
+      const slashIcon = togglePassword.querySelector('i.fa-eye-slash');
+
+      eyeIcon.classList.toggle('hidden');
+      slashIcon.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
